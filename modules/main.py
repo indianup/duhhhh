@@ -211,7 +211,7 @@ async def account_login(bot: Client, m: Message):
                 else:
                     cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
                 if ".m3u8" in url:
-                    cmd = f"ffmpeg -i "{url}" -vf "scale=1280:720" -b:v 2500k -c:v libx264 -preset fast -c:a aac -b:a 128k output.mp4"
+                    cmd = f'ffmpeg -i "{url}" -vf "scale=1280:720" -b:v 2500k -c:v libx264 -preset fast -c:a aac -b:a 128k output.mp4'
                     
                 try:
                     cc = f'**╭━━━━━━━━━━━╮**\n**💫 𝐕ɪᴅᴇⱺ 𝐈𝐃** : **{str(count).zfill(3)}**\n**╰━━━━━━━━━━━╯**\n**📁𝐓ɪᴛʟᴇ : {name1}** **({res}) 𝐒𝗍ⱺ𝗅𝖾𐓣 𝐇𝖺𝗉𝗉𝗂𐓣𝖾𝗌𝗌.mkv\n** \n<blockquote>**📚𝐂ⱺᴜʀꜱᴇ** : **{raw_text0}**\n\n**⚡Dⱺw𐓣𝗅ⱺ𝖺𝖽ed By** : **{MR}** </blockquote>'
