@@ -22,6 +22,7 @@ from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import m3u8
 import streamlink
+import wget
 
 bot = Client("bot",
              bot_token= "7286340326:AAEWGVOlOgFxuklLXFWuDXn48Lt3Yz2dXs4",
