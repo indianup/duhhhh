@@ -231,11 +231,26 @@ async def account_login(bot: Client, m: Message):
                                             
                     elif "cwmediabkt99.crwilladmin.com" in url:
                         headers = {
-                            'Accept-Encoding': 'gzip',
-                            'Connection': 'Keep-Alive',
-                            'Host': 'cwmediabkt99.crwilladmin.com',
-                            'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; G011A Build/PI)'
-                        }
+    "authority": "cwmediabkt99.crwilladmin.com",
+    "method": "GET",
+    "scheme": "https",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-US,en;q=0.9,hi;q=0.8",
+    "cache-control": "max-age=0",
+    "if-modified-since": "Tue, 21 May 2024 11:36:27 GMT",
+    "if-none-match": '"7db2d77d67936299d53826978f1d81e3"',
+    "priority": "u=0, i",
+    "sec-ch-ua": '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "none",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+}
                         scraper = cloudscraper.create_scraper()
                         try:
                             response = scraper.get(url, headers=headers)
