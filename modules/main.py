@@ -21,6 +21,7 @@ from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import m3u8
+import streamlink
 
 bot = Client("bot",
              bot_token= "7286340326:AAEWGVOlOgFxuklLXFWuDXn48Lt3Yz2dXs4",
@@ -209,7 +210,8 @@ async def account_login(bot: Client, m: Message):
                     cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4" --add-header authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjAwODUzNDQuNTksImRhdGEiOnsiX2lkIjoiNjY2NmUxY2VmNmEzYjNlNGU3ODIyMTVkIiwidXNlcm5hbWUiOiI5MDI0NTU0NTc2IiwiZmlyc3ROYW1lIjoiUmFodWwiLCJsYXN0TmFtZSI6IiIsIm9yZ2FuaXphdGlvbiI6eyJfaWQiOiI1ZWIzOTNlZTk1ZmFiNzQ2OGE3OWQxODkiLCJ3ZWJzaXRlIjoicGh5c2ljc3dhbGxhaC5jb20iLCJuYW1lIjoiUGh5c2ljc3dhbGxhaCJ9LCJlbWFpbCI6InJhaHVsY2hvdWhhbkBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3MTk0ODA1NDR9.NKpXT-e5Mzrrj1t05qLIGOGqyRbEXEGuUJ1q9xnIFNs"'
                 else:
                     cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
-                
+                if ".m3u8" in url:
+                  cmd = f"ffmpeg -i "{url}" -c copy -bsf:a aac_adtstoasc output.mp4"
                 try:
                     cc = f'**╭━━━━━━━━━━━╮**\n**💫 𝐕ɪᴅᴇⱺ 𝐈𝐃** : **{str(count).zfill(3)}**\n**╰━━━━━━━━━━━╯**\n**📁𝐓ɪᴛʟᴇ : {name1}** **({res}) 𝐒𝗍ⱺ𝗅𝖾𐓣 𝐇𝖺𝗉𝗉𝗂𐓣𝖾𝗌𝗌.mkv\n** \n<blockquote>**📚𝐂ⱺᴜʀꜱᴇ** : **{raw_text0}**\n\n**⚡Dⱺw𐓣𝗅ⱺ𝖺𝖽ed By** : **{MR}** </blockquote>'
                     cc1 = f'**╭━━━━━━━━━━╮**\n**💫 𝐅ɪʟᴇ 𝐈𝐃** : **{str(count).zfill(3)}**\n**╰━━━━━━━━━━╯**\n**📁𝐓ɪᴛʟᴇ : {name1}** **𝐒𝗍ⱺ𝗅𝖾𐓣 𝐇𝖺𝗉𝗉𝗂𐓣𝖾𝗌𝗌.pdf\n** \n<blockquote>**📚𝐂ⱺᴜʀꜱᴇ** : **{raw_text0}**\n\n**⚡Dⱺw𐓣𝗅ⱺ𝖺𝖽ed By** : **{MR}** </blockquote>'
